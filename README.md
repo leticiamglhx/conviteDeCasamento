@@ -26,6 +26,18 @@ A proposta é criar uma experiência digital elegante e interativa para os convi
 - CSS3
 - JavaScript
 
+📱 Responsividade
+
+O projeto será desenvolvido com foco em dispositivos móveis, especialmente smartphones, mas também será adaptado para tablets e computadores.
+
+🎨 Objetivo do projeto
+
+Criar um convite virtual elegante, moderno e interativo, proporcionando aos convidados uma experiência digital diferenciada.
+
+👩‍💻 Desenvolvimento
+
+Projeto desenvolvido utilizando React, TypeScript e Vite.
+
 ## 📁 Estrutura do projeto
 
 ```text
@@ -50,17 +62,7 @@ src/
 └── index.css
 
 
-📱 Responsividade
 
-O projeto será desenvolvido com foco em dispositivos móveis, especialmente smartphones, mas também será adaptado para tablets e computadores.
-
-🎨 Objetivo do projeto
-
-Criar um convite virtual elegante, moderno e interativo, proporcionando aos convidados uma experiência digital diferenciada.
-
-👩‍💻 Desenvolvimento
-
-Projeto desenvolvido utilizando React, TypeScript e Vite.
 
 
 ```md
