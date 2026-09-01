@@ -50,10 +50,18 @@ src/
 └── index.css
 
 
+📱 Responsividade
 
-### Mas como o projeto ainda está no começo...
+O projeto será desenvolvido com foco em dispositivos móveis, especialmente smartphones, mas também será adaptado para tablets e computadores.
 
-Eu **não colocaria como se todas essas funcionalidades já estivessem prontas**. Você pode separar:
+🎨 Objetivo do projeto
+
+Criar um convite virtual elegante, moderno e interativo, proporcionando aos convidados uma experiência digital diferenciada.
+
+👩‍💻 Desenvolvimento
+
+Projeto desenvolvido utilizando React, TypeScript e Vite.
+
 
 ```md
 ## 🚧 Em desenvolvimento
