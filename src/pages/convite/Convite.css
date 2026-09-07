@@ -1,30 +1,476 @@
-.convite {
-  min-height: 100vh;
-  background: #fff;
+:root {
+  --creme: #faf9f6;
+  --papel: #f3f0e8;
+  --oliva: #71804a;
+  --dourado: #a38b59;
+  --texto: #38362f;
+  --suave: #777268;
+  --linha: rgba(56, 54, 47, 0.14);
 }
 
-.hero {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--texto);
+  font-family: Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+main,
+.convite {
+  width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--creme);
+  color: var(--texto);
+}
 
+.hero-convite {
+  position: relative;
   display: flex;
-  flex-direction: column;
-
+  width: 100%;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
-
+  background-position: center 62%;
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
+}
 
+.hero-overlay {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 30px;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 25, 17, 0.34) 0%,
+    rgba(20, 25, 17, 0.12) 32%,
+    rgba(250, 249, 246, 0.1) 54%,
+    rgba(250, 249, 246, 0.26) 76%,
+    rgba(250, 249, 246, 0.72) 100%
+  );
 }
 
-.hero h1 {
-  font-family: serif;
-  font-size: 48px;
+.hero-overlay > * {
+  transform: translateY(clamp(-130px, -13vh, -58px));
+}
+
+.monograma-convite {
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: clamp(72px, 18vw, 130px);
   font-weight: 400;
-  margin: 20px 0;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.22);
 }
 
-.hero p {
+.hero-subtitulo {
+  margin: 30px 0 0;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.secao {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 80px 28px;
+  border-top: 1px solid var(--linha);
+  text-align: center;
+}
+
+.secao:nth-of-type(3n) {
+  background: rgba(243, 240, 232, 0.42);
+}
+
+.secao-versiculo {
+  padding-top: 110px;
+  padding-bottom: 100px;
+}
+
+.versiculo {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #4b4942;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 4vw, 23px);
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.referencia {
+  display: block;
+  margin-top: 18px;
+  color: var(--suave);
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.titulo-pequeno {
+  color: #4a4841;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.secao-pais {
+  padding-top: 60px;
+  padding-bottom: 90px;
+}
+
+.pais-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px;
+  margin-top: 45px;
+}
+
+.pais-grid p {
+  margin: 7px 0;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.secao-noivos {
+  padding-top: 90px;
+  padding-bottom: 110px;
+  background: rgba(243, 240, 232, 0.52);
+}
+
+.nome-noivos {
+  margin: 0;
+  color: var(--oliva);
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(58px, 14vw, 100px);
+  font-weight: 400;
+  line-height: 0.92;
+  text-shadow: 0 2px 0 rgba(163, 139, 89, 0.08);
+}
+
+.e-comercial {
+  display: block;
+  margin: 14px 0;
+  color: var(--dourado);
+  font-family: Georgia, serif;
+  font-size: 30px;
+}
+
+.texto-convite {
+  max-width: 430px;
+  margin: 60px auto 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.foto-meio {
+  position: relative;
+  width: calc(100% + 56px);
+  min-height: clamp(360px, 70vw, 620px);
+  margin: 52px 0 0 -28px;
+  background-position: center 42%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  isolation: isolate;
+}
+
+.foto-meio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--creme) 0%,
+    rgba(250, 249, 246, 0.26) 9%,
+    rgba(250, 249, 246, 0.05) 27%,
+    rgba(250, 249, 246, 0.05) 72%,
+    rgba(250, 249, 246, 0.28) 91%,
+    var(--creme) 100%
+  );
+  pointer-events: none;
+}
+
+.secao-data {
+  padding-top: 85px;
+  padding-bottom: 90px;
+}
+
+.linha-decorativa {
+  width: min(100%, 420px);
+  height: 1px;
+  margin: 22px auto;
+  background: rgba(56, 54, 47, 0.25);
+}
+
+.data-casamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 10vw, 66px);
+  font-weight: 300;
+}
+
+.divisor {
+  color: var(--dourado);
+  font-weight: 200;
+}
+
+.horario {
+  margin-top: 20px;
+  font-family: Georgia, serif;
   font-size: 16px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.secao-local {
+  padding-top: 60px;
+  padding-bottom: 90px;
+  scroll-margin-top: 20px;
+}
+
+.nome-local {
+  margin: 0 0 12px;
+  color: var(--texto);
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.secao-local p:not(.nome-local) {
+  margin: 6px 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.acoes-local {
+  display: flex;
+  width: min(100%, 360px);
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin: 34px auto 0;
+}
+
+.acoes-local a {
+  display: flex;
+  width: 100%;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 18px;
+  border: 1px solid rgba(163, 139, 89, 0.34);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.46);
+  color: #4a4841;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.acoes-local a:hover,
+.acoes-local a:focus-visible {
+  border-color: var(--dourado);
+  outline: none;
+  background: rgba(163, 139, 89, 0.1);
+  transform: translateY(-1px);
+}
+
+.acoes-local a span {
+  color: var(--dourado);
+  font-size: 17px;
+  line-height: 1;
+}
+
+.secao-cores {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+.paleta-cores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 45px;
+}
+
+.cor {
+  display: flex;
+  min-width: 80px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cor p {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.bolinha {
+  display: block;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 0 0 3px rgba(255, 255, 255, 0.28);
+}
+
+.verde-oliva { background: var(--oliva); }
+.lavanda { background: #c1acd3; }
+.branco { background: #fff; }
+.off-white { background: #eee9dc; }
+
+.secao-mensagem {
+  padding-top: 80px;
+  padding-bottom: 70px;
+}
+
+.mensagem-final {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #45433d;
+  font-family: Georgia, serif;
+  font-size: clamp(20px, 5vw, 28px);
+  line-height: 1.6;
+}
+
+.secao-final {
+  padding-top: 70px;
+  padding-bottom: 110px;
+}
+
+.ornamento {
+  margin-bottom: 45px;
+  color: var(--dourado);
+  font-size: 20px;
+}
+
+.versiculo-final {
+  font-size: clamp(17px, 4vw, 21px);
+}
+
+.foto-final {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 85vh;
+  align-items: flex-end;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.foto-final::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: clamp(170px, 26vh, 290px);
+  content: "";
+  background: linear-gradient(
+    180deg,
+    var(--creme) 0%,
+    rgba(250, 249, 246, 0.5) 24%,
+    rgba(250, 249, 246, 0.14) 52%,
+    rgba(250, 249, 246, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.foto-final-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(42px, 7vh, 78px) 30px 24px;
+  background: transparent;
+  text-align: center;
+  z-index: 2;
+}
+
+.foto-final-texto {
+  margin: 0;
+  color: var(--texto);
+  font-family: Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 8px rgba(250, 249, 246, 0.7);
+  text-transform: uppercase;
+}
+
+.foto-final-assinatura {
+  margin: 18px 0 0;
+  color: var(--oliva);
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(42px, 10vw, 64px);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(250, 249, 246, 0.58);
+}
+
+@media (max-width: 600px) {
+  .hero-convite,
+  .hero-overlay {
+    min-height: 92vh;
+  }
+
+  .hero-convite { background-position: center 66%; }
+  .hero-overlay { padding: 24px; }
+  .monograma-convite { font-size: clamp(64px, 20vw, 95px); }
+  .hero-subtitulo { margin-top: 24px; font-size: 11px; letter-spacing: 2.4px; }
+  .secao { padding: 68px 24px 78px; }
+  .secao-versiculo { padding-top: 85px; padding-bottom: 85px; }
+  .pais-grid { grid-template-columns: 1fr; gap: 30px; }
+  .secao-noivos { padding-top: 70px; padding-bottom: 90px; }
+  .texto-convite { margin-top: 45px; }
+  .foto-meio {
+    width: calc(100% + 48px);
+    min-height: min(132vw, 500px);
+    margin-top: 36px;
+    margin-left: -24px;
+  }
+  .data-casamento { gap: 9px; font-size: clamp(36px, 11vw, 52px); }
+  .paleta-cores { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 280px; gap: 26px 36px; margin: 40px auto 0; }
+  .foto-final { min-height: 78vh; background-position: center; }
+  .foto-final-overlay { padding: 42px 24px 24px; }
+  .foto-final-assinatura { font-size: clamp(36px, 11vw, 58px); }
+}
+
+@media (max-width: 380px) {
+  .data-casamento { gap: 6px; font-size: 34px; }
+  .titulo-pequeno { font-size: 12px; }
+  .pais-grid p { font-size: 14px; }
+  .nome-local { font-size: 19px; }
 }

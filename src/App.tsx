@@ -4,18 +4,19 @@ import Abertura from "./pages/abertura/Abertura";
 import Convite from "./pages/convite/Convite";
 
 function App() {
+  const [conviteAberto, setConviteAberto] = useState(false);
 
-  const [abriuConvite, setAbriuConvite] = useState(false);
-
-  if (!abriuConvite) {
-    return (
-      <Abertura
-        onAbrir={() => setAbriuConvite(true)}
-      />
-    );
-  }
-
-  return <Convite />;
+  return (
+    <>
+      {!conviteAberto ? (
+        <Abertura
+          onAbrir={() => setConviteAberto(true)}
+        />
+      ) : (
+        <Convite />
+      )}
+    </>
+  );
 }
 
 export default App;

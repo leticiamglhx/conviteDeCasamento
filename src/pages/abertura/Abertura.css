@@ -1,69 +1,367 @@
-@font-face {
-  font-family: "FonteConvite";
-  src: url("../../assets/fontes/fonte-convite.woff2")
-    format("woff2");
-}
 .abertura {
-  width: 100%;
-  height: 100vh;
-
-  background-image: url("../../assets/images/laco-abertura.png"); 
-  background-size: cover;
-  background-position: center;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
   position: relative;
-}
-
-.abertura-conteudo {
   width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #faf9f6;
 }
+
+/* =========================
+   MONOGRAMA
+========================= */
 
 .monograma {
-    
-  font-family: "FonteConvite", serif;
-
   position: absolute;
+  top: 18%;
+  left: 50%;
 
-  padding-bottom: 400px;
+  transform: translateX(-50%);
 
-  font-family: serif;
-  font-size: 80px;
-  font-weight: 300;
+  font-family: Georgia, serif;
 
-  color: #9b8b6a;
+  color: #8c7b58;
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
+
+.monograma img {
+  display: block;
+  width: clamp(150px, 42vw, 280px);
+  height: auto;
+}
+
+/* =========================
+   BOTÃO
+========================= */
 
 .botao-abrir {
   position: absolute;
+  top: 40%;
+  left: 50%;
 
-  top: 35%;
+  transform: translateX(-50%);
+
+  z-index: 20;
 
   border: none;
   background: transparent;
 
-  cursor: pointer;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  font-family: serif;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 2px;
 
-  color: #333;
+  color: #555;
+
+  cursor: pointer;
+
+  animation: pulsar 2s infinite;
 }
 
-.botao-abrir span{
-  padding-bottom: 600px;
+.botao-abrir span {
+  margin-top: 5px;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   CONTAINER DO LAÇO
+========================= */
+
+.laco-container {
+  position: absolute;
+
+  top: clamp(53%, 58vh, 63%);
+  left: 50%;
+
+  width: min(100%, 1100px);
+  height: clamp(260px, 42vh, 390px);
+
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+}
+
+.laco-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  mix-blend-mode: multiply;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Todas as peças partem do mesmo centro */
+
+.laco-container img {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: block;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+.laco-container .laco-abertura {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  z-index: 5;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+
+/* =========================
+   FITA ESQUERDA
+========================= */
+
+.fita-esquerda {
+  width: 52%;
+  opacity: 0;
+
+  transform:
+    translate(-100%, -50%);
+
+  z-index: 1;
+  transition:
+    transform 1.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease;
+}
+
+/* =========================
+   FITA DIREITA
+========================= */
+
+.fita-direita {
+  width: 52%;
+  opacity: 0;
+
+  transform:
+    translate(0, -50%);
+
+  z-index: 1;
+}
+
+/* =========================
+   LAÇO ESQUERDO
+========================= */
+
+.laco-esquerdo {
+  width: clamp(180px, 48vw, 360px);
+
+  transform:
+    translate(-79%, -38%);
+
+  transform-origin: 79% 38%;
+  opacity: 0;
+
+  z-index: 3;
+}
+
+/* =========================
+   LAÇO DIREITO
+========================= */
+
+.laco-direito {
+  width: clamp(220px, 58vw, 440px);
+
+  transform:
+    translate(-30.5%, -55%);
+
+  transform-origin: 30.5% 55%;
+  opacity: 0;
+
+  z-index: 3;
+}
+
+/* =========================
+   NÓ
+========================= */
+
+.no {
+  width: clamp(100px, 18vw, 160px);
+
+  transform:
+    translate(-50%, -50%);
+  opacity: 0;
+
+  z-index: 10;
+}
+
+/* =========================
+   TRANSIÇÕES
+========================= */
+
+.laco-esquerdo,
+.laco-direito {
+  transition:
+    transform 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease;
+}
+
+.fita-esquerda,
+.fita-direita {
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    opacity 0.2s ease;
+}
+
+.no {
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+/* =========================
+   ANIMAÇÃO DE ABERTURA
+========================= */
+
+.abrindo .no {
+  transform:
+    translate(-50%, -50%)
+    scale(0.4);
+
+  opacity: 0;
+}
+
+/* LAÇO ESQUERDO SAINDO */
+
+.abrindo .laco-esquerdo {
+  transform:
+    translate(-300%, -38%)
+    rotate(-35deg);
+
+  opacity: 1;
+}
+
+/* LAÇO DIREITO SAINDO */
+
+.abrindo .laco-direito {
+  transform:
+    translate(200%, -55%)
+    rotate(35deg);
+
+  opacity: 1;
+}
+
+/* FITA ESQUERDA SAINDO */
+
+.abrindo .fita-esquerda {
+  transform: translate(-300%, -50%) rotate(-8deg);
+
+  opacity: 1;
+}
+
+/* FITA DIREITA SAINDO */
+
+.abrindo .fita-direita {
+  transform: translate(200%, -50%);
+
+  opacity: 1;
+}
+
+/* TEXTO DESAPARECENDO */
+
+.abrindo .botao-abrir {
+  animation: none;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+/* MONOGRAMA DESAPARECENDO */
+
+.abrindo .monograma {
+  opacity: 0;
+
+  transform:
+    translateX(-50%)
+    translateY(-20px);
+}
+
+.abrindo .laco-abertura {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 600px) {
+  .monograma {
+    top: 17%;
+    font-size: 54px;
+  }
+
+  .botao-abrir {
+    top: 39%;
+    font-size: 12px;
+  }
+
+  .laco-container {
+    top: 56%;
+    height: clamp(250px, 38vh, 320px);
+  }
+
+  .fita-esquerda,
+  .fita-direita {
+    width: 58%;
+  }
+
+  .laco-esquerdo {
+    transform:
+      translate(-79%, -38%);
+  }
+
+  .laco-direito {
+    transform:
+      translate(-30.5%, -55%);
+  }
+
+  .abrindo .laco-esquerdo {
+    transform:
+      translate(-300%, -38%)
+      rotate(-35deg);
+
+    opacity: 1;
+  }
+
+  .abrindo .laco-direito {
+    transform:
+      translate(200%, -55%)
+      rotate(35deg);
+
+    opacity: 1;
+  }
 }
