@@ -1,12 +1,37 @@
+import { useEffect, useState } from "react";
 import "./Convite.css";
 
 import fotoPrincipal from "../../assets/convite/foto-principal.jpeg";
 import fotoMeio from "../../assets/convite/foto-meio.jpeg";
 import fotoFinal from "../../assets/convite/foto-final.jpeg";
 
+const dataCasamento = new Date(2027, 2, 18, 16, 30, 0);
+
+function calcularDiasRestantes() {
+  const hoje = new Date();
+  const diferenca = Math.max(0, dataCasamento.getTime() - hoje.getTime());
+  const segundosTotais = Math.floor(diferenca / 1000);
+
+  return {
+    dias: Math.floor(segundosTotais / (24 * 60 * 60)),
+    horas: Math.floor((segundosTotais % (24 * 60 * 60)) / (60 * 60)),
+    minutos: Math.floor((segundosTotais % (60 * 60)) / 60),
+    segundos: segundosTotais % 60,
+  };
+}
+
 function Convite() {
+  const [contagem, setContagem] = useState(calcularDiasRestantes);
+
+  useEffect(() => {
+    const atualizarContagem = () => setContagem(calcularDiasRestantes());
+    const intervalo = window.setInterval(atualizarContagem, 1000);
+
+    return () => window.clearInterval(intervalo);
+  }, []);
+
   return (
-    <main className="convite">
+    <main id="convite" className="convite">
       {/* =========================
           HERO
       ========================= */}
@@ -70,22 +95,24 @@ function Convite() {
       ========================= */}
 
       <section className="secao secao-noivos">
-        <p className="nome-noivos">
-          Thamyris
-        </p>
+        <div className="noivos-apresentacao">
+          <p className="nome-noivos">
+            Thamyris
+          </p>
 
-        <span className="e-comercial">
-          &
-        </span>
+          <span className="e-comercial">
+            &
+          </span>
 
-        <p className="nome-noivos">
-          Rafael
-        </p>
+          <p className="nome-noivos">
+            Rafael
+          </p>
 
-        <p className="texto-convite">
-          Têm a alegria de convidar para a celebração
-          do seu casamento
-        </p>
+          <p className="texto-convite">
+            Têm a alegria de convidar para a celebração
+            do seu casamento
+          </p>
+        </div>
 
         <div
           className="foto-meio"
@@ -101,6 +128,7 @@ function Convite() {
           DATA
       ========================= */}
 
+      <div className="detalhes-evento">
       <section className="secao secao-data">
         <p className="titulo-pequeno">
           A realizar-se no dia
@@ -119,8 +147,39 @@ function Convite() {
         <div className="linha-decorativa" />
 
         <p className="horario">
-          Quinta-feira, às 16 horas
+          Quinta-feira, às 16:30 horas
         </p>
+
+        <div className="contador" aria-live="polite">
+          <div className="contador-dias">
+            <span className="contador-intro">Faltam</span>
+            <span className="contador-numero">{contagem.dias}</span>
+            <span className="contador-label">dias</span>
+          </div>
+          <div className="contador-tempo">
+            <div className="contador-unidade">
+              <span className="contador-numero">
+                {String(contagem.horas).padStart(2, "0")}
+              </span>
+              <span className="contador-label">horas</span>
+            </div>
+            <span className="contador-separador">:</span>
+            <div className="contador-unidade">
+              <span className="contador-numero">
+                {String(contagem.minutos).padStart(2, "0")}
+              </span>
+              <span className="contador-label">minutos</span>
+            </div>
+            <span className="contador-separador">:</span>
+            <div className="contador-unidade">
+              <span className="contador-numero">
+                {String(contagem.segundos).padStart(2, "0")}
+              </span>
+              <span className="contador-label">segundos</span>
+            </div>
+          </div>
+          <span className="contador-descricao">para o nosso casamento</span>
+        </div>
       </section>
 
       {/* =========================
@@ -139,7 +198,27 @@ function Convite() {
         <p>
           Duque de Caxias – RJ
         </p>
+
+        <div className="acoes-local">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Chal%C3%A9+Enfesta+Duque+de+Caxias+RJ"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span aria-hidden="true">⌖</span>
+            Localização
+          </a>
+          <a href="https://noivos.casar.com/thamyriserafael#/rsvp">
+            <span aria-hidden="true">✓</span>
+            Confirmação de presença
+          </a>
+          <a href="https://noivos.casar.com/thamyriserafael#/presentes">
+            <span aria-hidden="true">▦</span>
+            Lista de presentes
+          </a>
+        </div>
       </section>
+      </div>
 
       {/* =========================
           CORES
@@ -205,13 +284,8 @@ function Convite() {
           FOTO FINAL
       ========================= */}
 
-      <section
-        className="foto-final"
-        style={{
-          backgroundImage: `url(${fotoFinal})`,
-        }}
-      >
-        <div className="foto-final-overlay">
+      <div className="foto-final-wrap">
+        <div className="foto-final-legenda">
           <p className="foto-final-texto">
             Com carinho,
           </p>
@@ -220,7 +294,14 @@ function Convite() {
             Thamyris & Rafael
           </p>
         </div>
-      </section>
+
+        <section
+          className="foto-final"
+          style={{
+            backgroundImage: `url(${fotoFinal})`,
+          }}
+        />
+      </div>
     </main>
   );
 }

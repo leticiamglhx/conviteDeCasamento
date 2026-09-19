@@ -33,7 +33,7 @@ main,
   position: relative;
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   align-items: center;
   justify-content: center;
   background-position: center 62%;
@@ -45,7 +45,7 @@ main,
 .hero-overlay {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -85,7 +85,7 @@ main,
 }
 
 .secao {
-  width: min(100%, 760px);
+  width: min(100%, 816px);
   margin: 0 auto;
   padding: 80px 28px;
   border-top: 1px solid var(--linha);
@@ -154,6 +154,13 @@ main,
   background: rgba(243, 240, 232, 0.52);
 }
 
+.noivos-apresentacao {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(113, 128, 74, 0.22);
+}
+
 .nome-noivos {
   margin: 0;
   color: var(--oliva);
@@ -213,6 +220,19 @@ main,
   padding-bottom: 90px;
 }
 
+.detalhes-evento {
+  background: rgba(243, 240, 232, 0.3);
+}
+
+.detalhes-evento .secao {
+  background: transparent;
+}
+
+.detalhes-evento .secao-local {
+  padding-top: 30px;
+  border-top-color: rgba(113, 128, 74, 0.18);
+}
+
 .linha-decorativa {
   width: min(100%, 420px);
   height: 1px;
@@ -240,6 +260,77 @@ main,
   font-family: Georgia, serif;
   font-size: 16px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 46px;
+  color: var(--oliva);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contador-dias,
+.contador-tempo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contador-dias {
+  flex-direction: column;
+}
+
+.contador-intro {
+  margin-bottom: 8px;
+  color: var(--texto);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.contador-tempo {
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.contador-unidade {
+  display: flex;
+  min-width: 68px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contador-numero {
+  font-size: clamp(36px, 8vw, 56px);
+  line-height: 1;
+}
+
+.contador-dias .contador-numero {
+  font-size: clamp(52px, 11vw, 76px);
+}
+
+.contador-separador {
+  align-self: flex-start;
+  padding-top: 5px;
+  color: var(--dourado);
+  font-size: clamp(30px, 6vw, 44px);
+  line-height: 1;
+}
+
+.contador-label {
+  margin-top: 7px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.contador-descricao {
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 1.6px;
   text-transform: uppercase;
 }
 
@@ -283,7 +374,7 @@ main,
   justify-content: center;
   gap: 10px;
   padding: 11px 18px;
-  border: 1px solid rgba(163, 139, 89, 0.34);
+  border: 1px solid rgba(113, 128, 74, 0.34);
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.46);
   color: #4a4841;
@@ -296,14 +387,14 @@ main,
 
 .acoes-local a:hover,
 .acoes-local a:focus-visible {
-  border-color: var(--dourado);
+  border-color: var(--oliva);
   outline: none;
-  background: rgba(163, 139, 89, 0.1);
+  background: rgba(113, 128, 74, 0.1);
   transform: translateY(-1px);
 }
 
 .acoes-local a span {
-  color: var(--dourado);
+  color: var(--oliva);
   font-size: 17px;
   line-height: 1;
 }
@@ -378,6 +469,16 @@ main,
   font-size: clamp(17px, 4vw, 21px);
 }
 
+.foto-final-wrap {
+  background: var(--creme);
+}
+
+.foto-final-legenda {
+  padding: 58px 24px 34px;
+  background: var(--creme);
+  text-align: center;
+}
+
 .foto-final {
   position: relative;
   display: flex;
@@ -385,7 +486,7 @@ main,
   min-height: 85vh;
   align-items: flex-end;
   justify-content: center;
-  background-position: center;
+  background-position: center 72%;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -408,25 +509,12 @@ main,
   z-index: 1;
 }
 
-.foto-final-overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  padding: clamp(42px, 7vh, 78px) 30px 24px;
-  background: transparent;
-  text-align: center;
-  z-index: 2;
-}
-
 .foto-final-texto {
   margin: 0;
   color: var(--texto);
   font-family: Georgia, serif;
   font-size: 15px;
   letter-spacing: 2px;
-  text-shadow: 0 1px 8px rgba(250, 249, 246, 0.7);
   text-transform: uppercase;
 }
 
@@ -437,13 +525,13 @@ main,
   font-size: clamp(42px, 10vw, 64px);
   font-weight: 400;
   line-height: 1;
-  text-shadow: 0 2px 10px rgba(250, 249, 246, 0.58);
+  text-shadow: none;
 }
 
 @media (max-width: 600px) {
   .hero-convite,
   .hero-overlay {
-    min-height: 92vh;
+    min-height: 92svh;
   }
 
   .hero-convite { background-position: center 66%; }
@@ -463,8 +551,8 @@ main,
   }
   .data-casamento { gap: 9px; font-size: clamp(36px, 11vw, 52px); }
   .paleta-cores { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 280px; gap: 26px 36px; margin: 40px auto 0; }
-  .foto-final { min-height: 78vh; background-position: center; }
-  .foto-final-overlay { padding: 42px 24px 24px; }
+  .foto-final-legenda { padding: 46px 24px 28px; }
+  .foto-final { min-height: 78vh; background-position: center 68%; }
   .foto-final-assinatura { font-size: clamp(36px, 11vw, 58px); }
 }
 

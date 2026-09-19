@@ -1,7 +1,7 @@
 .abertura {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   background-color: #faf9f6;
 }
@@ -12,7 +12,7 @@
 
 .monograma {
   position: absolute;
-  top: 18%;
+  top: clamp(64px, 11vh, 130px);
   left: 50%;
 
   transform: translateX(-50%);
@@ -28,7 +28,7 @@
 
 .monograma img {
   display: block;
-  width: clamp(150px, 42vw, 280px);
+  width: clamp(220px, 32vw, 410px);
   height: auto;
 }
 
@@ -38,7 +38,7 @@
 
 .botao-abrir {
   position: absolute;
-  top: 40%;
+  top: clamp(280px, 42vh, 420px);
   left: 50%;
 
   transform: translateX(-50%);
@@ -85,11 +85,11 @@
 .laco-container {
   position: absolute;
 
-  top: clamp(53%, 58vh, 63%);
+  top: clamp(58%, 66vh, 72%);
   left: 50%;
 
-  width: min(100%, 1100px);
-  height: clamp(260px, 42vh, 390px);
+  width: min(100%, 1280px);
+  height: clamp(250px, 43vh, 480px);
 
   transform: translate(-50%, -50%);
 
@@ -135,8 +135,8 @@
   transform: none;
   z-index: 5;
   transition:
-    opacity 0.2s ease,
-    visibility 0s linear 0.2s;
+    opacity 0.4s ease,
+    visibility 0s linear 0.4s;
 }
 
 /* =========================
@@ -144,7 +144,7 @@
 ========================= */
 
 .fita-esquerda {
-  width: 52%;
+  width: 50%;
   opacity: 0;
 
   transform:
@@ -161,7 +161,7 @@
 ========================= */
 
 .fita-direita {
-  width: 52%;
+  width: 50%;
   opacity: 0;
 
   transform:
@@ -223,15 +223,15 @@
 .laco-esquerdo,
 .laco-direito {
   transition:
-    transform 1.35s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.2s ease;
+    transform 1.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease;
 }
 
 .fita-esquerda,
 .fita-direita {
   transition:
-    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
-    opacity 0.2s ease;
+    transform 1.85s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+    opacity 0.55s ease 0.08s;
 }
 
 .no {
@@ -256,8 +256,8 @@
 
 .abrindo .laco-esquerdo {
   transform:
-    translate(-300%, -38%)
-    rotate(-35deg);
+    translate(-230%, -38%)
+    rotate(-18deg);
 
   opacity: 1;
 }
@@ -266,8 +266,8 @@
 
 .abrindo .laco-direito {
   transform:
-    translate(200%, -55%)
-    rotate(35deg);
+    translate(125%, -55%)
+    rotate(18deg);
 
   opacity: 1;
 }
@@ -275,7 +275,7 @@
 /* FITA ESQUERDA SAINDO */
 
 .abrindo .fita-esquerda {
-  transform: translate(-300%, -50%) rotate(-8deg);
+  transform: translate(-230%, -50%) rotate(-5deg);
 
   opacity: 1;
 }
@@ -283,7 +283,7 @@
 /* FITA DIREITA SAINDO */
 
 .abrindo .fita-direita {
-  transform: translate(200%, -50%);
+  transform: translate(230%, -50%) rotate(5deg);
 
   opacity: 1;
 }
@@ -320,23 +320,25 @@
 
 @media (max-width: 600px) {
   .monograma {
-    top: 17%;
-    font-size: 54px;
+    top: 9%;
   }
 
+  .monograma img { width: clamp(190px, 58vw, 280px); }
+
   .botao-abrir {
-    top: 39%;
+    top: 37%;
     font-size: 12px;
   }
 
   .laco-container {
-    top: 56%;
-    height: clamp(250px, 38vh, 320px);
+    top: 63%;
+    width: 120%;
+    height: clamp(230px, 38vh, 320px);
   }
 
   .fita-esquerda,
   .fita-direita {
-    width: 58%;
+    width: 56%;
   }
 
   .laco-esquerdo {
@@ -351,16 +353,16 @@
 
   .abrindo .laco-esquerdo {
     transform:
-      translate(-300%, -38%)
-      rotate(-35deg);
+      translate(-230%, -38%)
+      rotate(-18deg);
 
     opacity: 1;
   }
 
   .abrindo .laco-direito {
     transform:
-      translate(200%, -55%)
-      rotate(35deg);
+      translate(125%, -55%)
+      rotate(18deg);
 
     opacity: 1;
   }

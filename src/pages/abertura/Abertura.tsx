@@ -2,7 +2,10 @@ import { useState } from "react";
 import "./Abertura.css";
 
 import fitaEsquerda from "../../assets/images/Fita-esquerda.png";
+import fitaDireita from "../../assets/images/Fita-direita.png";
 import lacoAbertura from "../../assets/images/laco-abertura.png";
+import lacoEsquerdo from "../../assets/images/laco-esquerdo.png";
+import lacoDireito from "../../assets/images/laco-direito.png";
 import logo from "../../assets/images/logo.png";
 
 interface AberturaProps {
@@ -17,7 +20,7 @@ function Abertura({ onAbrir }: AberturaProps) {
 
     setAbrindo(true);
 
-    setTimeout(onAbrir, 2500);
+    setTimeout(onAbrir, 700);
   };
 
   return (
@@ -49,9 +52,31 @@ function Abertura({ onAbrir }: AberturaProps) {
         />
 
         <img
+          className="laco-esquerdo"
+          src={lacoEsquerdo}
+          alt=""
+          aria-hidden="true"
+        />
+
+        <img
+          className="laco-direito"
+          src={lacoDireito}
+          alt=""
+          aria-hidden="true"
+        />
+
+        <img
           className="fita-esquerda"
           src={fitaEsquerda}
-          alt="Fita do laço"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <img
+          className="fita-direita"
+          src={fitaDireita}
+          alt=""
+          aria-hidden="true"
         />
       </div>
     </main>
